@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_base.css">
+<style>
+#art{background:#000;color:#fff}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0}
+.poster .shade{background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.85) 100%)}
+.poster .t{position:absolute;left:14px;right:14px;bottom:16px;font-family:"Archivo";font-weight:900;font-size:26px;line-height:.92;letter-spacing:-.02em;text-transform:uppercase}
+.poster .k{position:absolute;left:14px;top:12px;font-family:"Space Grotesk";font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#ff4d5a}
+.hero .shade{background:linear-gradient(90deg,rgba(5,5,10,.92) 0%,rgba(5,5,10,.55) 45%,rgba(5,5,10,0) 75%),linear-gradient(180deg,rgba(0,0,0,0) 60%,#0b0b10 100%)}
+.hero .k{position:absolute;left:36px;top:48px;font-family:"Space Grotesk";font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#ff4d5a}
+.hero .t{position:absolute;left:34px;top:74px;width:330px;font-family:"Archivo";font-weight:900;font-size:56px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+.hero .s{position:absolute;left:36px;top:206px;font-family:"Space Grotesk";font-size:14px;color:#cfcfd6}
+.thumb .shade{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.65) 100%)}
+.thumb .play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.thumb .play:after{content:"";position:absolute;left:34px;top:26px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #111}
+.thumb .t{position:absolute;left:24px;bottom:22px;width:420px;font-family:"Archivo";font-weight:800;font-size:34px;line-height:1;letter-spacing:-.02em}
+.thumb .d{position:absolute;right:16px;bottom:16px;background:rgba(0,0,0,.8);border-radius:6px;padding:4px 8px;font:700 14px "Space Grotesk"}
+.album{background:radial-gradient(circle at 30% 30%,#ffb38a 0 18%,transparent 19%),radial-gradient(circle at 72% 64%,#7b5cff 0 26%,transparent 27%),radial-gradient(circle at 70% 64%,#ff5a7a 0 34%,transparent 35%),linear-gradient(160deg,#141033,#2a0f4d 60%,#5b1a5e)}
+.album .ring{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;border:2px solid rgba(255,255,255,.35)}
+.album .t{position:absolute;left:28px;bottom:26px;font-family:"Instrument Serif";font-style:italic;font-size:58px;line-height:.9}
+.album .k{position:absolute;left:30px;top:26px;font:700 13px "Space Grotesk";letter-spacing:.2em;text-transform:uppercase}
+</style></head><body><div id="art"></div>
+<script>
+const p = new URLSearchParams(location.search);
+const art = document.getElementById("art");
+const mode = p.get("mode");
+art.className = mode;
+art.style.width = p.get("w") + "px";
+art.style.height = p.get("h") + "px";
+const photo = p.get("photo") ? `<img class="photo" src="../assets/img/photo-${p.get("photo")}.jpg" onerror="this.src='../assets/img/photo-${p.get("photo")}-960.jpg'">` : "";
+const t = p.get("title") || "", k = p.get("kicker") || "", s = p.get("sub") || "", d = p.get("dur") || "";
+if (mode === "poster") art.innerHTML = `${photo}<div class="shade"></div><div class="k">${k}</div><div class="t">${t}</div>`;
+if (mode === "hero") art.innerHTML = `${photo}<div class="shade"></div><div class="k">${k}</div><div class="t">${t}</div><div class="s">${s}</div>`;
+if (mode === "thumb") art.innerHTML = `${photo}<div class="shade"></div><div class="play"></div><div class="t">${t}</div><div class="d">${d}</div>`;
+if (mode === "album") art.innerHTML = `<div class="ring"></div><div class="k">${k}</div><div class="t">${t}</div>`;
+</script></body></html>

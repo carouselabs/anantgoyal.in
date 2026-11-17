@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_base.css">
+<style>
+body{font-family:Manrope,sans-serif}
+#art{width:600px;height:400px;background:radial-gradient(60% 70% at 50% 100%,rgba(198,244,50,.28),transparent 70%),radial-gradient(50% 60% at 15% 10%,rgba(156,140,255,.25),transparent 70%),#0E0F1A}
+.ph{position:absolute;width:196px;height:400px;border-radius:34px;background:#05060C;padding:9px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),inset 0 0 0 1.5px #2A2D40}
+.sc{width:100%;height:100%;border-radius:26px;background:#151726;padding:34px 14px 14px;color:#F2F3FA;position:relative;overflow:hidden}
+.sc:before{content:"";position:absolute;top:9px;left:50%;width:58px;height:16px;border-radius:10px;background:#05060C;transform:translateX(-50%)}
+.p1{left:92px;top:34px}.p2{left:312px;top:64px}
+.lbl{font-size:9px;color:#8C90AE;font-weight:600}
+h5{font-size:14px;font-weight:800;margin:2px 0 12px;letter-spacing:-.01em}
+.ring{width:108px;height:108px;border-radius:50%;margin:0 auto 12px;background:conic-gradient(#C6F432 0 62%,#2A2D40 62% 100%);display:grid;place-items:center}
+.ring div{width:84px;height:84px;border-radius:50%;background:#151726;display:grid;place-items:center;text-align:center}
+.ring b{font-size:17px;font-weight:800;display:block}.ring span{font-size:8px;color:#8C90AE}
+.who{display:flex;align-items:center;gap:6px;margin-bottom:12px;justify-content:center}
+.av{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:8.5px;font-weight:800;color:#0E0F1A}
+.av:nth-child(1){background:#C6F432}.av:nth-child(2){background:#9C8CFF;margin-left:-8px}
+.who small{font-size:8.5px;color:#8C90AE}
+.cat{display:flex;justify-content:space-between;font-size:9px;font-weight:600;margin-bottom:4px}
+.bar{height:5px;border-radius:3px;background:#2A2D40;margin-bottom:9px;overflow:hidden}.bar i{display:block;height:100%;border-radius:3px}
+.rec{background:#1E2133;border-radius:14px;padding:11px;margin-bottom:9px}
+.cols{display:flex;align-items:flex-end;gap:7px;height:84px;margin-top:10px}
+.cols i{flex:1;border-radius:5px 5px 2px 2px;background:#2F3350}.cols i.on{background:#C6F432}
+.days{display:flex;gap:7px;font-size:7.5px;color:#8C90AE;margin-top:4px}.days span{flex:1;text-align:center}
+.note{font-size:9px;line-height:1.45;color:#C9CCE0}.note b{color:#C6F432}
+</style></head><body><div id="art">
+<div class="ph p1"><div class="sc">
+<div class="lbl">Shared budget</div><h5>Home · November</h5>
+<div class="ring"><div><b>$1,240</b><span>of $2,000</span></div></div>
+<div class="who"><span class="av">A</span><span class="av">M</span><small>Alex and Maya</small></div>
+<div class="cat"><span>Groceries</span><span>$412</span></div><div class="bar"><i style="width:68%;background:#C6F432"></i></div>
+<div class="cat"><span>Utilities</span><span>$186</span></div><div class="bar"><i style="width:44%;background:#9C8CFF"></i></div>
+<div class="cat"><span>Eating out</span><span>$238</span></div><div class="bar"><i style="width:79%;background:#FF8A65"></i></div>
+</div></div>
+<div class="ph p2"><div class="sc">
+<div class="lbl">Monthly recap</div><h5>October in review</h5>
+<div class="rec"><div class="lbl">Spent per week</div>
+<div class="cols"><i style="height:54%"></i><i style="height:72%"></i><i class="on" style="height:38%"></i><i style="height:61%"></i></div>
+<div class="days"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div></div>
+<div class="rec"><p class="note">You spent <b>$96 less</b> on eating out than in September.</p></div>
+<div class="rec"><p class="note">Two bills are due next week: <b>rent</b> and <b>internet</b>.</p></div>
+</div></div>
+</div></body></html>

@@ -1,0 +1,170 @@
+[
+  {
+    "slug": "graphwell-newsletter",
+    "from": "Graphwell",
+    "subject": "What shipped in November: dashboards that explain themselves",
+    "preheader": "Written summaries on every chart, scheduled reports and Slack alerts.",
+    "bytes": 16598
+  },
+  {
+    "slug": "brookfold-winter-edit",
+    "from": "Brookfold",
+    "subject": "The winter edit: 25% off throws, lamps and stoneware",
+    "preheader": "Until Sunday night. Free delivery over $80.",
+    "bytes": 16955
+  },
+  {
+    "slug": "pocketlane-launch",
+    "from": "Pocketlane",
+    "subject": "Pocketlane 3.0: budgets you can share",
+    "preheader": "Shared budgets, bill splitting and a monthly recap. Update the app to try them.",
+    "bytes": 16705
+  },
+  {
+    "slug": "farewind-fare-sale",
+    "from": "Farewind",
+    "subject": "48 hours only: up to 30% off spring trips",
+    "preheader": "Lisbon, Bergen, Madeira and more. Sale ends Sunday at midnight.",
+    "bytes": 17856
+  },
+  {
+    "slug": "morrow-welcome",
+    "from": "Morrow Roast",
+    "subject": "Welcome to the club, Sam",
+    "preheader": "Your first bag ships on Monday. Here's how the club works.",
+    "bytes": 15240
+  },
+  {
+    "slug": "sunday-margin-issue-48",
+    "from": "The Sunday Margin",
+    "subject": "Issue 48: The case for reading one book slowly",
+    "preheader": "Plus three short reads and what we're reading this week.",
+    "bytes": 13624
+  },
+  {
+    "slug": "tandemly-early-access",
+    "from": "Tandemly",
+    "subject": "Early access is open: team schedules that plan themselves",
+    "preheader": "Join before 30 November and your first three months are free.",
+    "bytes": 18243
+  },
+  {
+    "slug": "brookfold-shipping",
+    "from": "Brookfold",
+    "subject": "Your order is on its way",
+    "preheader": "Shipped today. Arriving Thursday 13 November.",
+    "bytes": 13917
+  },
+  {
+    "slug": "nordlys-launch",
+    "from": "Nordlys",
+    "subject": "Introducing Halo.",
+    "preheader": "A lamp that follows the light outside.",
+    "bytes": 9552
+  },
+  {
+    "slug": "ledgerline-security",
+    "from": "Ledgerline Security",
+    "subject": "New sign-in to your Ledgerline account",
+    "preheader": "Chrome on Windows, Pune. If this wasn't you, secure your account now.",
+    "bytes": 9855
+  },
+  {
+    "slug": "taskfold-weekly",
+    "from": "Taskfold",
+    "subject": "Your week: 42 tasks done",
+    "preheader": "Your busiest day, your top project and a five-day streak.",
+    "bytes": 16008
+  },
+  {
+    "slug": "stackbeam-changelog",
+    "from": "Stackbeam",
+    "subject": "v2.8.0: edge caching and a faster CLI",
+    "preheader": "Added, improved and fixed in this release.",
+    "bytes": 11720
+  },
+  {
+    "slug": "pantry-chat",
+    "from": "Pantrypop",
+    "subject": "Malik is on the way with your order",
+    "preheader": "Your rider's messages, and your order arriving at 11:00.",
+    "bytes": 12604
+  },
+  {
+    "slug": "nightreel-streaming",
+    "from": "Nightreel",
+    "subject": "The Long North starts Friday",
+    "preheader": "Plus three picks because you watched The Quiet Coast.",
+    "bytes": 10598
+  },
+  {
+    "slug": "satellites-release",
+    "from": "Paper Satellites",
+    "subject": "Night Signals is out now",
+    "preheader": "Ten songs, one long drive. Listen anywhere.",
+    "bytes": 13491
+  },
+  {
+    "slug": "daily-fold-digest",
+    "from": "The Daily Fold",
+    "subject": "Saturday: the streets that rebuilt a city",
+    "preheader": "Your morning edition in five minutes.",
+    "bytes": 15627
+  },
+  {
+    "slug": "grid-goods-brutalist",
+    "from": "Grid Goods",
+    "subject": "SALE. 40% OFF. NO, REALLY.",
+    "preheader": "Mugs, prints and stickers. Two days only.",
+    "bytes": 11166
+  },
+  {
+    "slug": "type-forum-swiss",
+    "from": "Type Forum",
+    "subject": "Type Forum 27: programme and tickets",
+    "preheader": "Two days, twelve talks, one grid. Basel, 14 and 15 May.",
+    "bytes": 11596
+  },
+  {
+    "slug": "saffron-menu",
+    "from": "Saffron Row",
+    "subject": "This week's tasting menu",
+    "preheader": "Five courses from the autumn market. Tables from Thursday.",
+    "bytes": 11615
+  },
+  {
+    "slug": "margin-year-recap",
+    "from": "The Sunday Margin",
+    "subject": "Your 2026 in reading",
+    "preheader": "48 issues, one long streak and the essay you came back to.",
+    "bytes": 9595
+  },
+  {
+    "slug": "pocketlane-survey",
+    "from": "Pocketlane",
+    "subject": "One question, ten seconds",
+    "preheader": "How likely are you to recommend Pocketlane?",
+    "bytes": 10755
+  },
+  {
+    "slug": "ember-social-post",
+    "from": "Little Ember Bakehouse",
+    "subject": "Saturday's tray is out of the oven",
+    "preheader": "Cardamom buns, hazelnut tarts and the first plum galettes.",
+    "bytes": 9842
+  },
+  {
+    "slug": "ferncastle-thread",
+    "from": "Rowan Vale, Ferncastle",
+    "subject": "What a four-day week did to our team (a thread)",
+    "preheader": "Four posts on output, hiring and the meetings we cut.",
+    "bytes": 13010
+  },
+  {
+    "slug": "bloom-video",
+    "from": "Bloom & Pour",
+    "subject": "New video: the 4-minute pour-over",
+    "preheader": "Twelve minutes, one kettle, any coffee.",
+    "bytes": 10925
+  }
+]

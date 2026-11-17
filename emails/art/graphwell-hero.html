@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_base.css">
+<style>
+#art{width:520px;height:312px;border-radius:14px;background:#F5F7FD;display:flex;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.side{width:52px;background:#fff;border-right:1px solid #E6EAF5;display:flex;flex-direction:column;align-items:center;padding-top:14px;gap:12px}
+.logo{width:24px;height:24px;border-radius:7px;background:#3358FF;position:relative}
+.logo:after{content:"";position:absolute;left:6px;bottom:6px;width:3px;height:7px;background:#fff;border-radius:1px;box-shadow:4.5px -3px 0 0 #fff,9px -6px 0 0 #fff}
+.nav{width:22px;height:6px;border-radius:3px;background:#E3E8F6}.nav.on{background:#3358FF;opacity:.25}
+.main{flex:1;padding:16px 18px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.top h4{font-size:13px;color:#0B1B3F;font-weight:600}
+.pill{font-size:9px;color:#56627F;background:#fff;border:1px solid #E3E8F6;border-radius:20px;padding:4px 9px}
+.kpis{display:flex;gap:8px;margin-bottom:10px}
+.kpi{flex:1;background:#fff;border:1px solid #E6EAF5;border-radius:9px;padding:8px 10px}
+.kpi span{display:block;font-size:8.5px;color:#7A86A3}.kpi b{font-size:15px;color:#0B1B3F;font-weight:700;letter-spacing:-.02em}
+.kpi i{font-style:normal;font-size:8.5px;color:#13A36E;font-weight:600;margin-left:4px}
+.chart{background:#fff;border:1px solid #E6EAF5;border-radius:9px;padding:10px 10px 4px;position:relative;height:148px}
+.chart small{font-size:8.5px;color:#7A86A3}
+.ai{position:absolute;right:12px;top:22px;width:168px;background:#0B1B3F;color:#fff;border-radius:10px;padding:10px 11px;box-shadow:0 12px 24px -8px rgba(11,27,63,.45)}
+.ai em{font-style:normal;font-size:8px;font-weight:600;color:#39D3A0;letter-spacing:.02em;display:flex;align-items:center;gap:5px}
+.ai em:before{content:"";width:6px;height:6px;border-radius:50%;background:#39D3A0}
+.ai p{font-size:9.5px;line-height:1.45;margin-top:5px;color:#DCE3F5}
+</style></head><body><div id="art">
+<div class="side"><div class="logo"></div><div class="nav on"></div><div class="nav"></div><div class="nav"></div><div class="nav"></div></div>
+<div class="main">
+<div class="top"><h4>Revenue overview</h4><span class="pill">Last 30 days</span></div>
+<div class="kpis"><div class="kpi"><span>Monthly revenue</span><b>$48.2k</b><i>+6.1%</i></div><div class="kpi"><span>Active accounts</span><b>1,284</b><i>+38</i></div><div class="kpi"><span>Churn</span><b>1.9%</b></div></div>
+<div class="chart"><small>Daily revenue</small>
+<svg width="412" height="118" viewBox="0 0 460 118" preserveAspectRatio="none" style="position:absolute;left:10px;bottom:6px">
+<defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3358FF" stop-opacity=".28"/><stop offset="1" stop-color="#3358FF" stop-opacity="0"/></linearGradient></defs>
+<g stroke="#EEF1F8"><line x1="0" x2="460" y1="30" y2="30"/><line x1="0" x2="460" y1="62" y2="62"/><line x1="0" x2="460" y1="94" y2="94"/></g>
+<path d="M0 92 C30 88 45 80 70 82 S120 70 150 72 S200 60 230 64 S280 40 310 46 S360 30 390 34 S430 18 460 14 L460 118 L0 118Z" fill="url(#g)"/>
+<path d="M0 92 C30 88 45 80 70 82 S120 70 150 72 S200 60 230 64 S280 40 310 46 S360 30 390 34 S430 18 460 14" fill="none" stroke="#3358FF" stroke-width="2.4"/>
+<circle cx="310" cy="46" r="4.5" fill="#fff" stroke="#3358FF" stroke-width="2.4"/>
+</svg>
+<div class="ai"><em>Summary</em><p>Revenue rose 6.1% this month. Most of it came from teams moving to the annual plan.</p></div>
+</div></div></div></body></html>

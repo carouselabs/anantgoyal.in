@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+shots/
+# The design check's own state and its Chrome profile
+.taste-skill/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+
+.vercel

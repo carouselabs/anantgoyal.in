@@ -1,0 +1,15 @@
+# Leading "/" = only the folder at the project root (without it, every folder with
+# that name anywhere is skipped, e.g. "outreach" also dropped components/outreach/).
+
+# Build output and caches: Vercel builds the site itself.
+/.next
+/out
+node_modules
+*.tsbuildinfo
+# Local-only: secrets, screenshots, design-gate files, the original photo.
+.env*
+/shots
+/.taste-skill
+/assets
+# The cold-outreach email source (its pictures live in public/email-assets/).
+/outreach

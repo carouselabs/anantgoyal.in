@@ -1,0 +1,12 @@
+{
+  "note": "Brand names used inside the sample emails. Each was searched with its trade on 2026-11-08; none matched an existing business of that trade in the first results.",
+  "names": [
+    { "name": "Graphwell", "query": "\"Graphwell\" analytics software", "result": "no product or company by that name", "searched": true },
+    { "name": "Ostra Home", "query": "\"Ostra Home\" homeware", "result": "an 'Ostra Bowl' ceramic product exists at HipVan: rejected", "searched": true },
+    { "name": "Brookfold", "query": "\"Brookfold\" home goods store", "result": "no store by that name (only Brookfield places)", "searched": true },
+    { "name": "Pocketlane", "query": "\"Pocketlane\" budgeting app", "result": "no app by that name", "searched": true },
+    { "name": "Morrow Roast", "query": "\"Morrow Roast\" coffee subscription", "result": "no roaster by that name", "searched": true },
+    { "name": "The Sunday Margin", "query": "\"The Sunday Margin\" newsletter", "result": "no newsletter with that exact title", "searched": true },
+    { "name": "Tandemly", "query": "\"Tandemly\" team scheduling app", "result": "no product by that name (Tandem exists)", "searched": true }
+  ]
+}

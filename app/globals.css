@@ -1,0 +1,586 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --color-ink: #100c33;
+  --color-ink-2: #46426b;
+  --color-ink-3: #5c5884;
+  --color-mist: #f4f3fc;
+  --color-paper: #ffffff;
+  --color-line: #e5e2f4;
+  --color-blue: #2f4bff;
+  --color-indigo: #4b30ee;
+  --color-violet: #7b3aee;
+  --color-purple: #a445f0;
+  --color-night: #0b0920;
+  --color-night-2: #15122f;
+  --color-lime: #d4ff5c;
+  --color-go: #22c55e;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-float: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 30px 60px -24px rgba(32, 16, 110, 0.45), 0 12px 24px -12px rgba(32, 16, 110, 0.25);
+  --shadow-card: 0 1px 2px rgba(16, 12, 51, 0.04), 0 18px 40px -22px rgba(16, 12, 51, 0.28);
+  --shadow-lift: 0 1px 2px rgba(16, 12, 51, 0.05), 0 28px 50px -24px rgba(32, 16, 110, 0.4);
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+::selection {
+  background: #d9d2ff;
+  color: var(--color-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--color-lime);
+}
+/* A white card inside a dark section (the contact form) goes back to blue. */
+.on-dark .on-light :focus-visible {
+  outline-color: var(--color-blue);
+}
+
+@layer components {
+/* The rich blue → violet → purple ground used by the hero, studio and contact. */
+.canvas {
+  background:
+    radial-gradient(70% 55% at 8% 0%, #5a78ff 0%, rgba(90, 120, 255, 0) 62%),
+    radial-gradient(60% 60% at 100% 12%, #9a44ea 0%, rgba(154, 68, 234, 0) 62%),
+    radial-gradient(80% 60% at 50% 115%, #6a2be8 0%, rgba(106, 43, 232, 0) 65%),
+    linear-gradient(160deg, #2c3cf0 0%, #4a2ee6 50%, #6e2fe6 100%);
+}
+.night {
+  background:
+    radial-gradient(50% 40% at 0% 0%, rgba(75, 48, 238, 0.45) 0%, rgba(75, 48, 238, 0) 70%),
+    radial-gradient(45% 40% at 100% 100%, rgba(164, 69, 240, 0.35) 0%, rgba(164, 69, 240, 0) 70%),
+    var(--color-night);
+}
+.text-gradient {
+  background: linear-gradient(100deg, #2f4bff 0%, #7b3aee 55%, #a445f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── 3D objects (pure CSS, no WebGL) ─────────────────────────────────────
+   A sphere is three light layers over a base: a sharp specular highlight,
+   a soft bounce light at the lower right, and a body gradient; inset shadows
+   give the terminator, an outer shadow lifts it off the ground. */
+.orb {
+  --s: 120px;
+  display: block;
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  border-radius: 9999px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.98) 0, rgba(255, 255, 255, 0.6) 4%, rgba(255, 255, 255, 0) 20%),
+    radial-gradient(circle at 74% 84%, rgba(255, 255, 255, 0.32) 0, rgba(255, 255, 255, 0) 30%),
+    radial-gradient(circle at 38% 34%, var(--o1) 0%, var(--o2) 40%, var(--o3) 76%, var(--o4) 100%);
+  box-shadow:
+    inset calc(var(--s) * -0.07) calc(var(--s) * -0.1) calc(var(--s) * 0.2) rgba(12, 2, 60, 0.38),
+    inset calc(var(--s) * 0.04) calc(var(--s) * 0.04) calc(var(--s) * 0.12) rgba(255, 255, 255, 0.25),
+    0 calc(var(--s) * 0.22) calc(var(--s) * 0.4) calc(var(--s) * -0.12) rgba(28, 8, 110, 0.5);
+}
+.orb--blue {
+  --o1: #b4c4ff;
+  --o2: #4766ff;
+  --o3: #2328cc;
+  --o4: #110d6b;
+}
+.orb--violet {
+  --o1: #ead6ff;
+  --o2: #a752f6;
+  --o3: #6721d6;
+  --o4: #2c0a77;
+}
+.orb--pearl {
+  --o1: #ffffff;
+  --o2: #eeeaff;
+  --o3: #bfb3f7;
+  --o4: #6f60d2;
+}
+.orb--lime {
+  --o1: #f6ffd6;
+  --o2: #d4ff5c;
+  --o3: #93c21d;
+  --o4: #4b6a05;
+}
+.orb--iris {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.98) 0, rgba(255, 255, 255, 0.6) 4%, rgba(255, 255, 255, 0) 20%),
+    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0) 30%, rgba(40, 12, 130, 0.55) 100%),
+    conic-gradient(from 200deg at 46% 46%, #7fe3ff, #8d7bff, #ff9be0, #ffd88c, #9ff0d0, #7fe3ff);
+}
+.orb--glass {
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0) 16%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0) 34%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.28) 100%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    inset calc(var(--s) * -0.05) calc(var(--s) * -0.08) calc(var(--s) * 0.18) rgba(40, 10, 140, 0.25),
+    0 calc(var(--s) * 0.2) calc(var(--s) * 0.4) calc(var(--s) * -0.14) rgba(28, 8, 110, 0.4);
+}
+
+/* A torus: a conic band masked to a ring, laid back in perspective. */
+.torus {
+  --s: 200px;
+  display: block;
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  pointer-events: none;
+  transform: rotateX(64deg) rotateZ(-18deg);
+}
+.torus::before,
+.torus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  -webkit-mask: radial-gradient(circle, transparent 47%, #000 48%, #000 69%, transparent 70%);
+  mask: radial-gradient(circle, transparent 47%, #000 48%, #000 69%, transparent 70%);
+}
+.torus::before {
+  background: conic-gradient(from 160deg, #6f86ff, #c79bff, #ffffff 18%, #9a7bff 32%, #3c45dd 58%, #2a1fa8 72%, #6f86ff);
+}
+.torus::after {
+  background: radial-gradient(circle, rgba(10, 0, 60, 0.45) 46%, rgba(10, 0, 60, 0) 56%, rgba(255, 255, 255, 0.3) 64%, rgba(10, 0, 60, 0.35) 70%);
+}
+
+/* A soft contact shadow under a floating object. */
+.ground-shadow {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgba(20, 6, 90, 0.35), rgba(20, 6, 90, 0));
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+}
+
+/* ── Ambient motion (CSS, so one switch pauses all of it) ──────────────── */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, var(--float, -12px), 0);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(var(--drift-x, 8px), var(--drift-y, -14px), 0) rotate(var(--drift-r, 6deg));
+  }
+}
+@keyframes email-scroll {
+  0%,
+  12% {
+    transform: translateY(0);
+  }
+  50%,
+  62% {
+    transform: translateY(var(--scroll-to, -40%));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+  }
+  80%,
+  100% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+}
+.float {
+  animation: float-y var(--dur, 7s) var(--ease-in-out, ease-in-out) var(--delay, 0s) infinite;
+}
+.drift {
+  animation: drift var(--dur, 11s) ease-in-out var(--delay, 0s) infinite;
+}
+.email-scroll {
+  animation: email-scroll var(--dur, 16s) cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.live-dot {
+  animation: pulse-dot 2.4s ease-out infinite;
+}
+html[data-motion="paused"] .float,
+html[data-motion="paused"] .drift,
+html[data-motion="paused"] .email-scroll,
+html[data-motion="paused"] .live-dot,
+html[data-motion="paused"] .pulse-travel {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .float,
+  .drift,
+  .email-scroll,
+  .live-dot,
+  .pulse-travel {
+    animation: none !important;
+  }
+}
+
+/* The "message sent" banner drops in from under the nav. */
+@keyframes banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.banner-in {
+  animation: banner-in 0.45s var(--ease-out-soft) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .banner-in {
+    animation: none;
+  }
+}
+
+/* ── Scroll reveal: only when JS runs, never hiding content without it ── */
+html.js [data-reveal] {
+  transition:
+    opacity 0.8s var(--ease-out-soft),
+    transform 0.8s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html.js [data-reveal]:not([data-shown]) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal]:not([data-shown]) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Hero entrance ──────────────────────────────────────────────────────
+   Words wait under html.m-enter, rise once when hydrated, and stand as
+   written without JS, under reduced motion, or after 900ms whatever happens. */
+.hero-word {
+  display: inline-block;
+}
+.hero-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.16em 0.08em 0.1em 0;
+  margin: -0.16em -0.08em -0.1em 0;
+}
+html.m-enter:not(.m-enter-done) .hero-word {
+  transform: translate3d(0, 105%, 0);
+}
+html.m-enter:not(.m-enter-done) [data-enter-fade] {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+}
+html.m-enter:not(.m-enter-done) [data-enter-stage] {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0) scale(0.97);
+}
+.hero-word,
+[data-enter-fade],
+[data-enter-stage] {
+  transition:
+    transform 1s var(--ease-out-expo),
+    opacity 0.8s var(--ease-out-soft);
+  transition-delay: var(--d, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.m-enter:not(.m-enter-done) .hero-word,
+  html.m-enter:not(.m-enter-done) [data-enter-fade],
+  html.m-enter:not(.m-enter-done) [data-enter-stage] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Interaction layer ──────────────────────────────────────────────────── */
+.btn {
+  transition:
+    transform 0.25s var(--ease-out-soft),
+    box-shadow 0.25s var(--ease-out-soft),
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.08s;
+}
+.btn .btn-arrow {
+  transition: transform 0.3s var(--ease-out-soft);
+}
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+.lift {
+  transition:
+    transform 0.35s var(--ease-out-soft),
+    box-shadow 0.35s var(--ease-out-soft);
+}
+.lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out-soft);
+}
+.link-draw:hover {
+  background-size: 100% 1.5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .lift:hover {
+    transform: none;
+  }
+}
+
+/* A preview sheet that scrolls down its email on hover. */
+.peek img {
+  transition: transform 2.6s cubic-bezier(0.45, 0, 0.25, 1);
+}
+.peek-host:hover .peek img,
+.peek-host:focus-visible .peek img {
+  transform: translateY(var(--peek, -18%));
+}
+@media (prefers-reduced-motion: reduce) {
+  .peek-host:hover .peek img {
+    transform: none;
+  }
+}
+
+/* The process line draws itself once the steps come into view, then a
+   pulse runs along it. */
+.draw-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 2.2s var(--ease-out-soft) 0.2s;
+}
+[data-shown] .draw-line,
+html:not(.js) .draw-line {
+  transform: scaleX(1);
+}
+.draw-line-y {
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 2.4s var(--ease-out-soft) 0.2s;
+}
+[data-shown] .draw-line-y,
+html:not(.js) .draw-line-y {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw-line-y {
+    transition: none;
+    transform: scaleY(1);
+  }
+}
+@keyframes run-along {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+.pulse-travel {
+  animation: run-along 3.4s cubic-bezier(0.45, 0, 0.55, 1) 2.4s infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw-line {
+    transition: none;
+    transform: scaleX(1);
+  }
+}
+
+/* Outreach pipeline: packets travel along each track, then fade. */
+@keyframes packet-x {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  12%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}
+@keyframes packet-y {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  12%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+}
+.packet-x {
+  animation: packet-x 2.4s cubic-bezier(0.45, 0, 0.55, 1) var(--delay, 0s) infinite both;
+}
+.packet-y {
+  animation: packet-y 2.4s cubic-bezier(0.45, 0, 0.55, 1) var(--delay, 0s) infinite both;
+}
+html[data-motion="paused"] .packet-x,
+html[data-motion="paused"] .packet-y {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .packet-x,
+  .packet-y {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Dashboard bars rise when their section is revealed. */
+.bar-grow {
+  transform-origin: bottom;
+  transition: transform 0.9s var(--ease-out-soft);
+  transition-delay: calc(var(--i, 0) * 45ms + 200ms);
+}
+html.js [data-reveal]:not([data-shown]) .bar-grow {
+  transform: scaleY(0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal]:not([data-shown]) .bar-grow {
+    transform: none;
+  }
+}
+
+/* Switching process tracks: the new steps settle in one after another. */
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+}
+.process-swap > li {
+  animation: step-in 0.5s var(--ease-out-soft) both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-swap > li {
+    animation: none;
+  }
+}
+
+/* Inside the project viewer the focus ring is blue again (it sits on white). */
+.viewer :focus-visible {
+  outline-color: var(--color-blue);
+}
+
+/* Native dialog for the project viewer. */
+dialog.viewer {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+dialog.viewer::backdrop {
+  background: rgba(11, 9, 32, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+dialog.viewer[open] .viewer-panel {
+  animation: viewer-in 0.5s var(--ease-out-expo);
+}
+@keyframes viewer-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.98);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  dialog.viewer[open] .viewer-panel {
+    animation: none;
+  }
+}
+
+/* Range input used by the before/after comparison: invisible but focusable. */
+.compare-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+}
+.compare-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 44px;
+  height: 100vh;
+}
+.compare-range::-moz-range-thumb {
+  width: 44px;
+  height: 100vh;
+  border: 0;
+  background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
